@@ -1,0 +1,25 @@
+.form {
+    text-align: left;
+    width: 100%;
+}
+
+.form-item {
+    margin-top: 20px;
+}
+
+.form-actions {
+    margin-top: 20px;
+}
+
+.form-item-error input {
+    border-color: rgb(255, 86, 86);
+}
+
+.form-item-error input:focus {
+    border-color: rgb(255, 61, 61);
+}
+
+.form-error-message {
+    margin-top: 5px;
+    color: rgb(255, 86, 86);
+}

@@ -1,8 +1,10 @@
 /* NavigationHeader.module.css */
 .header {
     background-color: #3498db;
-    padding: 1rem 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav {
@@ -24,16 +26,24 @@
 .navLink {
     text-decoration: none;
     color: #ffffff;
-    font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .navLink:hover {
-    color: #ff9800;
+    font-weight: bold;
 }
 
 .activeNavLink {
-    color: #ff9800;
+    color: #ffffff;
     font-weight: bold;
     text-decoration: none;
+}
+
+.userInfo {
+    margin-right: 10px;
+}
+
+.headerButton {
+    font-size: 1rem;
+    margin-right: 10px;
 }

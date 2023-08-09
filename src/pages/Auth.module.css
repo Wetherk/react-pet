@@ -1,0 +1,33 @@
+.authContent {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.authContainer {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.authContainer h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.authInfo {
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.authContainer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.authError {
+    color: rgb(255, 86, 86);
+}

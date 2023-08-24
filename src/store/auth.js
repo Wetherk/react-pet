@@ -3,14 +3,16 @@ import {
     signInWithEmailAndPassword,
     signOut,
 } from "firebase/auth";
-import { auth } from "../firebase";
 import { createSlice } from "@reduxjs/toolkit";
+
+import { auth } from "../firebase";
 import { uiActions } from "./ui";
 
 const user = JSON.parse(localStorage.getItem("user"));
 const initialAuthState = {
     user,
     error: null,
+    isLoggedInChanged: false,
 };
 
 const authSlice = createSlice({
@@ -20,6 +22,7 @@ const authSlice = createSlice({
         setUser(state, action) {
             localStorage.setItem("user", JSON.stringify(action.payload));
             state.user = action.payload;
+            state.isLoggedInChanged = true;
         },
         setError(state, action) {
             state.error = action.payload;
@@ -82,6 +85,7 @@ export const login = ({ email, password }) => {
             .then((userCredential) => {
                 const { email, displayName, photoURL, accessToken } =
                     userCredential.user;
+
                 dispatch(
                     authActions.setUser({
                         email,

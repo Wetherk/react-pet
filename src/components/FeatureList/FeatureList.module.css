@@ -1,0 +1,10 @@
+.feature-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.feature-list {
+    margin-top: 2rem;
+}

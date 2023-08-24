@@ -27,6 +27,20 @@ const NavigationHeader = (props) => {
                             Home
                         </NavLink>
                     </li>
+                    {user && (
+                        <li className={styles.navItem}>
+                            <NavLink
+                                to="/tasks"
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? styles.activeNavLink
+                                        : styles.navLink
+                                }
+                            >
+                                Tasks
+                            </NavLink>
+                        </li>
+                    )}
                 </ul>
             </nav>
 

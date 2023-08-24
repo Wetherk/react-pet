@@ -1,6 +1,7 @@
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, redirect, useSearchParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { createAccount, login } from "../store/auth";
+import store from "../store/redux";
 
 import AuthForm from "../components/Auth/AuthForm";
 import Card from "../components/UI/Card";
@@ -64,3 +65,11 @@ const AuthPage = () => {
 };
 
 export default AuthPage;
+
+export function checkAuthLoader() {
+    const user = store.getState().auth.user;
+
+    if (!user) return redirect("/auth?mode=login");
+
+    return null;
+}

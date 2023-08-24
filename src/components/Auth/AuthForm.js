@@ -30,14 +30,6 @@ const AuthForm = ({ mode, onCredentialsSubmit }) => {
             email,
             password,
         });
-        clearForm();
-    };
-
-    const clearForm = () => {
-        setEmail("");
-        setIsEmailTouched(false);
-        setPassword("");
-        setIsPasswordTouched(false);
     };
 
     const handleEmailChange = (e) => {

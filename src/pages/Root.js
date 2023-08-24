@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Outlet, useNavigate, useNavigation } from "react-router-dom";
+import { Outlet, useNavigation, useNavigate } from "react-router-dom";
 
 import NavigationHeader from "../components/Navigation/NavigationHeader";
 import styles from "./Root.module.css";
@@ -10,6 +10,9 @@ import { uiActions } from "../store/ui";
 
 const RootLayout = () => {
     const user = useSelector((state) => state.auth.user);
+    const isLoggedInChanged = useSelector(
+        (state) => state.auth.isLoggedInChanged
+    );
     const notification = useSelector((state) => state.ui.notification);
     const isPageBusy = useSelector((state) => state.ui.isPageBusy);
     const dispatch = useDispatch();
@@ -17,9 +20,11 @@ const RootLayout = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (user) navigate("/");
-        if (!user) navigate("/auth?mode=login");
-    }, [user, navigate]);
+        if (isLoggedInChanged) {
+            if (user) navigate("/");
+            if (!user) navigate("/auth?mode=login");
+        }
+    }, [user, isLoggedInChanged, navigate]);
 
     const handleClose = () => {
         dispatch(uiActions.closeNotification());
